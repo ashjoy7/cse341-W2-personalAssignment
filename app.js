@@ -5,6 +5,10 @@ const mongodb = require('./db/connect');
 const port = process.env.PORT || 8080;
 const app = express();
 
+const debug = require('debug');
+debug.enable('mongodb,tls');
+
+
 app
   .use(bodyParser.json())
   .use((req, res, next) => {
