@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpecs = require('./swagger');
+const swaggerRoutes = require('./routes/swagger'); // Import the Swagger routes
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -15,15 +14,13 @@ app
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
-  });
+  })
+  .use('/', require('./routes'));
 
 // Serve Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use('/', swaggerRoutes);
 
-// Your existing routes
-app.use('/', require('./routes'));
-
-mongodb.initDb((err) => {
+mongodb.initDb((err, mongodb) => {
   if (err) {
     console.log(err);
   } else {
