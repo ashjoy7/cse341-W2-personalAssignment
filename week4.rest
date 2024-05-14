@@ -1,4 +1,6 @@
 //Swagger routes
 ###
-GET http://localhost:8080/swagger.js
+GET https://cse341-w2-personalassignment-1.onrender.com/api-docs/
 
+
+GET https://cse341-w2-personalassignment-1.onrender.com/api-docs/
