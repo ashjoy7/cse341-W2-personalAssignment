@@ -5,11 +5,11 @@ const doc = {
     title: 'My API',
     description: 'Temple API'
   },
-  host: 'cse341-instructor.herokuapp.com',
+  host: 'cse341-w2-personalassignment.onrender.com',
   schemes: ['https']
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+const endpointsFiles = ['.routes/index.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
